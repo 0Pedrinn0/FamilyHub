@@ -1,0 +1,428 @@
+/* Variáveis globais */
+:root {
+    --primary-color: #00CED1;    
+    --secondary-color: #98FB98;  
+    --accent-color: #FFB6C1;     
+    --text-color: #333;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos do Header */
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', 'Segoe UI', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+    background: 
+        radial-gradient(circle at 10% 20%, var(--accent-color) 15%, transparent 15%),
+        radial-gradient(circle at 90% 80%, var(--secondary-color) 15%, transparent 15%),
+        radial-gradient(circle at 95% 10%, var(--primary-color) 10%, transparent 10%),
+        radial-gradient(circle at 5% 90%, var(--primary-color) 10%, transparent 10%),
+        linear-gradient(135deg, 
+            var(--accent-color) 0%, 
+            var(--primary-color) 50%, 
+            var(--secondary-color) 100%);
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    animation: float 8s infinite ease-in-out;
+    z-index: 0;
+}
+
+body::before {
+    top: 10%;
+    left: 10%;
+    animation-delay: -4s;
+}
+
+body::after {
+    bottom: 10%;
+    right: 10%;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+.container, form, .cadastroForm {
+    z-index: 1;
+}
+
+.logo {
+    width: 140px;
+    height: auto;
+    justify-items: center;
+    margin: 0 auto;
+    display: block;
+}
+
+.container, form, .cadastroForm {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 25px;
+    box-shadow: var(--shadow);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    padding-top: 1rem;
+    position: relative;
+}
+
+h1 {
+  color: var(--text-color);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+input {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 12px auto;
+    border: 2px solid #f0f0f0;
+    border-radius: 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #fff;
+    display: block;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(0, 206, 209, 0.2);
+    transform: translateY(-2px);
+}
+
+
+input[type="submit"] {
+    background: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    width: 90%;
+}
+
+
+.ligamentos {
+    display: block;
+    width: 90%;
+    padding: 15px 25px;
+    margin: 15px auto;
+    text-decoration: none;
+    color: var(--text-color);
+    background: white;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border: 2px solid transparent;
+}
+
+.ligamentos:hover {
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+    position: relative;
+    padding: 5px 0;
+}
+
+@keyframes logoFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos da Lista de Compras */
+.lista-items {
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.item {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item.comprado {
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+
+.item-info {
+    flex-grow: 1;
+}
+
+/* Estilos dos Lembretes */
+.lista-lembretes {
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.lembrete {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.lembrete.concluido {
+    opacity: 0.6;
+    background-color: #f0f0f0;
+}
+
+.lembrete.concluido .lembrete-conteudo {
+    text-decoration: line-through;
+}
+
+.lembrete-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.lembrete-titulo {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.lembrete-data {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.lembrete-descricao {
+    margin: 10px 0;
+    color: var(--text-color);
+}
+
+/* Estilos compartilhados para ações */
+.item-acoes,
+.lembrete-acoes {
+    display: flex;
+    gap: 10px;
+}
+
+.lembrete-acoes {
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.btn-acao {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 1.2em;
+}
+
+.btn-editar { 
+    color: var(--primary-color); 
+}
+
+.btn-deletar { 
+    color: #ff4444; 
+}
+
+.btn-comprado,
+.btn-concluido { 
+    color: var(--secondary-color); 
+}
+
+/* Estilos dos campos de texto */
+textarea {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 12px auto;
+    border: 2px solid #f0f0f0;
+    border-radius: 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #fff;
+    display: block;
+    min-height: 100px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(0, 206, 209, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Layout de duas colunas */
+.content-wrapper {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.column {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Botão de sair */
+.btn-sair {
+    background: #ff4444;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 15px;
+    margin-left: 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-sair:hover {
+    background: #ff6666;
+    transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 100px;
+    }
+
+    .container, form, .cadastroForm {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    input, .ligamentos, textarea {
+        width: 95%;
+    }
+
+    .lista-items,
+    .lista-lembretes {
+        width: 95%;
+    }
+
+    .tabela-aparelhos {
+        font-size: 0.9rem;
+    }
+
+    .tabela-aparelhos th,
+    .tabela-aparelhos td {
+        padding: 8px;
+    }
+}

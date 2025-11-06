@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista de Compras</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo">FamilyHub</div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="/index.html" class="nav-link">Home</a></li>
+                <li><a href="/listaDeCompras.html" class="nav-link">Lista de Compras</a></li>
+                <li><a href="/lembretes.html" class="nav-link">Lembretes</a></li>
+                <li><a href="/gasto.html" class="nav-link">Gastos</a></li>
+                <li><a href="/login.html" class="nav-link btn-sair">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content-wrapper">
+        <div class="column">
+            <form id="formLista" class="cadastroForm">
+                <h1>Lista de Compras</h1>
+                <input type="text" name="item" id="item" placeholder="Adicionar item" required>
+                <input type="number" name="quantidade" id="quantidade" placeholder="Quantidade" required>
+                <input type="text" name="descricao" id="descricao" placeholder="Descrição (opcional)">
+                <input type="submit" value="Adicionar">
+            </form>
+        </div>
+        <div class="column">
+            <div class="lista-items" id="listaItems">
+                <!-- Os itens serão adicionados aqui dinamicamente -->
+            </div>
+        </div>
+    </div>
+
+    <script src="scriptLista.js"></script>
+</body>
+</html>

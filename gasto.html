@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Consumo de Energia</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo">FamilyHub</div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="/index.html" class="nav-link">Home</a></li>
+                <li><a href="/listaDeCompras.html" class="nav-link">Lista de Compras</a></li>
+                <li><a href="/lembretes.html" class="nav-link">Lembretes</a></li>
+                <li><a href="/gasto.html" class="nav-link">Gastos</a></li>
+                <li><a href="/login.html" class="nav-link btn-sair">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Calculadora de Consumo de Energia</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Aparelho</th>
+                    <th>Potência (W)</th>
+                    <th>Qtd.</th>
+                    <th>Horas/dia</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaAparelhos">
+                <!-- Aparelhos serão adicionados via JS -->
+            </tbody>
+        </table>
+
+        <label for="valorKwh">Valor do kWh (R$): </label>
+        <input type="number" id="valorKwh" value="0.90" step="0.01">
+
+        <button onclick="calcularConsumo()">Calcular Consumo</button>
+
+        <div class="resultado" id="resultado"></div>
+    </div>
+
+  <script src="scriptGasto.js"></script>
+  </body>
+</html>

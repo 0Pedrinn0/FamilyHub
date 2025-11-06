@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lembretes</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo">FamilyHub</div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="/index.html" class="nav-link">Home</a></li>
+                <li><a href="/listaDeCompras.html" class="nav-link">Lista de Compras</a></li>
+                <li><a href="/lembretes.html" class="nav-link">Lembretes</a></li>
+                <li><a href="/gasto.html" class="nav-link">Gastos</a></li>
+                <li><a href="/login.html" class="nav-link btn-sair">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content-wrapper">
+        <div class="column">
+            <form id="formLembrete" class="cadastroForm">
+                <h1>Lembretes</h1>
+                <input type="text" name="titulo" id="titulo" placeholder="Título do lembrete" required>
+                <textarea name="descricao" id="descricao" placeholder="Descrição do lembrete" required></textarea>
+                <input type="date" name="data" id="data" required>
+                <input type="time" name="horario" id="horario">
+                <input type="submit" value="Adicionar Lembrete">
+            </form>
+        </div>
+        <div class="column">
+            <div class="lista-lembretes" id="listaLembretes">
+                <!-- Os lembretes serão adicionados aqui dinamicamente -->
+            </div>
+        </div>
+    </div>
+
+    <script src="scriptLembretes.js"></script>
+</body>
+</html>
