@@ -1,17 +1,14 @@
 const formLembrete = document.getElementById('formLembrete');
 const listaLembretes = document.getElementById('listaLembretes');
 
-// Função para formatar data
 function formatarData(data) {
     return new Date(data).toLocaleDateString('pt-BR');
 }
 
-// Função para formatar hora
 function formatarHora(hora) {
     return hora ? hora.substring(0, 5) : '';
 }
 
-// Carregar lembretes
 async function carregarLembretes() {
     try {
         const response = await fetch('http://localhost:3000/lembretes');
@@ -26,7 +23,6 @@ async function carregarLembretes() {
     }
 }
 
-// Adicionar novo lembrete
 formLembrete.addEventListener('submit', async (e) => {
     e.preventDefault();
     
@@ -60,7 +56,6 @@ formLembrete.addEventListener('submit', async (e) => {
     }
 });
 
-// Função para criar elemento de lembrete na lista
 function adicionarLembreteNaLista(lembrete) {
     const divLembrete = document.createElement('div');
     divLembrete.className = `lembrete ${lembrete.concluido ? 'concluido' : ''}`;
@@ -82,7 +77,6 @@ function adicionarLembreteNaLista(lembrete) {
     listaLembretes.appendChild(divLembrete);
 }
 
-// Editar lembrete
 async function editarLembrete(id) {
     const lembrete = await buscarLembrete(id);
     if (!lembrete) return;
@@ -123,7 +117,6 @@ async function editarLembrete(id) {
     }
 }
 
-// Buscar lembrete por ID
 async function buscarLembrete(id) {
     try {
         const response = await fetch(`http://localhost:3000/lembretes/${id}`);
@@ -137,7 +130,6 @@ async function buscarLembrete(id) {
     }
 }
 
-// Marcar lembrete como concluído/não concluído
 async function marcarLembrete(id) {
     try {
         const response = await fetch(`http://localhost:3000/lembretes/marcar/${id}`, {
@@ -158,7 +150,6 @@ async function marcarLembrete(id) {
     }
 }
 
-// Deletar lembrete
 async function deletarLembrete(id) {
     if (!confirm('Tem certeza que deseja deletar este lembrete?')) return;
 
@@ -178,5 +169,4 @@ async function deletarLembrete(id) {
     }
 }
 
-// Carregar lembretes iniciais
 carregarLembretes();

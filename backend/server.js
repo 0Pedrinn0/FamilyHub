@@ -45,7 +45,6 @@ app.post('/login', (req, res) => {
 
             if (results.length > 0) {
                 const user = results[0];
-                // Retornar dados mínimos do usuário
                 return res.json({ message: 'Login realizado com sucesso.', user: { id: user.id_usuario || user.id, nome_usuario: user.nome_usuario } });
             }
 
@@ -54,7 +53,6 @@ app.post('/login', (req, res) => {
     );
 });
 
-// Rota para obter todos os items da lista
 app.get('/lista', (req, res) => {
     db.query('SELECT * FROM tb_lista_compra ORDER BY comprado_listaCompra ASC, id_listaCompra DESC',
     (err, results) => {
@@ -63,9 +61,8 @@ app.get('/lista', (req, res) => {
     });
 });
 
-// Rotas para lista de compras
 app.post('/lista/adicionar', (req, res) => {
-    console.log('Dados recebidos:', req.body); // Log dos dados recebidos
+    console.log('Dados recebidos:', req.body);
     
     const { nome_listaCompra, quantidade_listaCompra, descricao_listaCompra } = req.body;
     
@@ -73,7 +70,7 @@ app.post('/lista/adicionar', (req, res) => {
     [nome_listaCompra, quantidade_listaCompra, descricao_listaCompra],
     (err, result) => {
         if (err) {
-            console.error('Erro SQL:', err); // Log do erro SQL
+            console.error('Erro SQL:', err);
             return res.status(500).json({ message: 'Erro ao adicionar item.' });
         }
         res.json({ message: 'Item adicionado com sucesso!', id: result.insertId });
@@ -114,7 +111,6 @@ app.delete('/lista/deletar/:id', (req, res) => {
     });
 });
 
-// Rotas para lembretes
 app.get('/lembretes', (req, res) => {
     db.query('SELECT * FROM tb_lembrete ORDER BY data_lembrete ASC, horario_lembrete ASC',
     (err, results) => {

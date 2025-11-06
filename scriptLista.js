@@ -1,7 +1,6 @@
 const formLista = document.getElementById('formLista');
 const listaItems = document.getElementById('listaItems');
 
-// Carregar lista de itens
 async function carregarLista() {
     try {
         const response = await fetch('http://localhost:3000/lista');
@@ -16,7 +15,6 @@ async function carregarLista() {
     }
 }
 
-// Adicionar novo item
 formLista.addEventListener('submit', async (e) => {
     e.preventDefault();
     
@@ -26,8 +24,7 @@ formLista.addEventListener('submit', async (e) => {
         descricao_listaCompra: document.getElementById('descricao').value || null
     };
     
-    console.log('Enviando dados:', item); // Log dos dados sendo enviados
-
+    console.log('Enviando dados:', item);
     try {
         const response = await fetch('http://localhost:3000/lista/adicionar', {
             method: 'POST',
@@ -51,7 +48,6 @@ formLista.addEventListener('submit', async (e) => {
     }
 });
 
-// Função para criar elemento de item na lista
 function adicionarItemNaLista(item) {
     const divItem = document.createElement('div');
     divItem.className = `item ${item.comprado_listaCompra ? 'comprado' : ''}`;
@@ -69,7 +65,6 @@ function adicionarItemNaLista(item) {
     listaItems.appendChild(divItem);
 }
 
-// Editar quantidade do item
 async function editarItem(id) {
     const novaQuantidade = prompt('Digite a nova quantidade:');
     if (novaQuantidade === null || novaQuantidade === '') return;
@@ -94,7 +89,6 @@ async function editarItem(id) {
     }
 }
 
-// Marcar item como comprado/não comprado
 async function marcarItem(id) {
     try {
         const response = await fetch(`http://localhost:3000/lista/marcar/${id}`, {
@@ -115,7 +109,6 @@ async function marcarItem(id) {
     }
 }
 
-// Deletar item
 async function deletarItem(id) {
     if (!confirm('Tem certeza que deseja deletar este item?')) return;
 
@@ -135,5 +128,4 @@ async function deletarItem(id) {
     }
 }
 
-// Carregar lista inicial
 carregarLista();
