@@ -418,3 +418,111 @@ textarea:focus {
         padding: 8px;
     }
 }
+
+.novo-boleto {
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.lista-boletos {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+.boleto {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--primary-color);
+    height: 100%;
+    min-height: 200px;
+}
+
+.boleto.pago {
+    border-left-color: var(--secondary-color);
+    opacity: 0.8;
+}
+
+.boleto.pago .boleto-info {
+    text-decoration: line-through;
+    color: #666;
+}
+
+.boleto-info {
+    flex: 1;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.boleto-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-color);
+}
+
+.boleto-info .valor {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.boleto-info .vencimento {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.3rem;
+}
+
+.boleto-info .status {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    background: var(--primary-color);
+    color: white;
+    display: inline-block;
+}
+
+.boleto.pago .status {
+    background: var(--secondary-color);
+}
+
+.boleto-acoes {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.boleto-acoes button {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.marcar-pago {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.excluir {
+    background: var(--accent-color);
+    color: white;
+}
+
+.boleto-acoes button:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow);
+}

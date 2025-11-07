@@ -22,3 +22,9 @@ discricao_lembrete TEXT NOT NULL,
 data_lembrete DATE NOT NULL,
 horario_lembrete TIME NULL
 );
+CREATE TABLE IF NOT EXISTS tb_boleto(
+id_boleto INT PRIMARY KEY AUTO_INCREMENT,
+nome_boleto VARCHAR(100) NOT NULL,
+discricao_boleto TEXT NOT NULL,
+data_boleto DATE NOT NULL
+);
